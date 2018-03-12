@@ -39,10 +39,14 @@ Ensuring CLS Compliance : [CLSCompliant] attribute
 **Additional .NET-Aware Programming Languages:** Visual Studio provides you with five managed languages, specifically, C#, Visual Basic, C++/CLI, JavaScript, and F#. 
 In addition to the managed languages provided by Microsoft, there are .NET compilers for Smalltalk, Ruby, Python, COBOL, and Pascal (to name a few). 
 
-![TestText](\C#\Reference_Digrams\CH-001-The Philosophy of .NET)
+![altText](http://admin.unboxingmind.com/PublicationDocs/CH-001-The%20Philosophy%20of%20.NET/CLR_CTS_CLS_BaseClass_Library_RelationShip.JPG)
 
 **An Overview of .NET Assemblies:**
 .NET binaries do not contain platform-specific instructions but rather platform-agnostic Intermediate Language (IL) and type metadata.
+
+![altText](http://admin.unboxingmind.com/PublicationDocs/CH-001-The%20Philosophy%20of%20.NET/ILInstructionDigram.JPG)
+
+An Overview of .NET Assemblies:
 
 When a **\*.dll or \*.exe** has been created using a .NET-aware compiler, the binary blob is termed an **assembly.** 
 
@@ -89,6 +93,8 @@ A vast majority of the .NET Framework assemblies are located under a specific di
  **Open Source .NET Distributions:**
 * The Mono project
 * .NET Core 5
+
+![altText](http://admin.unboxingmind.com/PublicationDocs/CH-001-The%20Philosophy%20of%20.NET/DOTNET_WORKFLOW.JPG)
 
 
 
