@@ -39,6 +39,8 @@ Ensuring CLS Compliance : [CLSCompliant] attribute
 **Additional .NET-Aware Programming Languages:** Visual Studio provides you with five managed languages, specifically, C#, Visual Basic, C++/CLI, JavaScript, and F#. 
 In addition to the managed languages provided by Microsoft, there are .NET compilers for Smalltalk, Ruby, Python, COBOL, and Pascal (to name a few). 
 
+![Tux, the Linux mascot](\C#\Reference_Digrams\CH-001-The Philosophy of .NET)
+
 **An Overview of .NET Assemblies:**
 .NET binaries do not contain platform-specific instructions but rather platform-agnostic Intermediate Language (IL) and type metadata.
 
