@@ -61,8 +61,7 @@ In the real world, an end user has the option of supplying command-line argument
             
             // Get arguments using System.Environment.
             // Main method with parameters not required with this approch but no harm doing so as well.
-            /*The first index identifies the name of the application itself, 
-              while the remaining elements in the array contain the individual command-line arguments.*/
+            /*The first index identifies the name of the application itself, while the remaining elements in the array contain the individual command-line arguments.*/
             string[] theArgs = Environment.GetCommandLineArgs();
             foreach (string arg in theArgs)
             {
@@ -96,6 +95,10 @@ All intrinsic data types support what is known as a **default constructor**.
 * BigInteger variables are set to 0.
 * DateTime variables are set to 1/1/0001 12:00:00 AM.
 * **Object references (including strings) are set to null.**
+
+System.Object : Parent of all 
+* System.ValueType : Memory allocated on stack.
+
 
 
 
