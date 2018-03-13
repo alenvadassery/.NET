@@ -60,9 +60,9 @@ In the real world, an end user has the option of supplying command-line argument
             // Way two to read arguments.
             
             // Get arguments using System.Environment.
-            // Main method with parameters not required with this approch but no             harm doing so as well.
+            // Main method with parameters not required with this approch but no harm doing so as well.
             /*The first index identifies the name of the application itself, 
-              while the remaining elements in the array contain the individual              command-line arguments.*/
+              while the remaining elements in the array contain the individual command-line arguments.*/
             string[] theArgs = Environment.GetCommandLineArgs();
             foreach (string arg in theArgs)
             {
