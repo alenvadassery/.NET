@@ -201,7 +201,7 @@ When you define instance-level data, you know that every time you create a new o
 **Static Methods**
 CLR will allocate the static data into memory exactly one time. 
 
-**NOTE**:  It is a compiler error for a static member to reference nonstatic members in its implementation. On a related note, it is an error to use the this keyword on a static member because this implies an object.
+**NOTE**:  It is a compiler error for a static member to reference non-static members in its implementation. On a related note, it is an error to use the this keyword on a static member because this implies an object.
 
 **Static Constructor**
 When member variables has to be resolved or value has to be obtained at runtime we use static constructor.
@@ -240,11 +240,276 @@ With these “static imports,” the remainder of your code file is able to dire
 		
 **CAUTION**:  Overuse of static import statements could result in potential confusion for complier as well as for new developer.
 
+###Pillars of OOP
+* Encapsulation: How does this language hide an object’s internal implementation details and preserve data integrity?
+* Inheritance: How does this language promote code reuse?
+* Polymorphism: How does this language let you treat related objects in a similar way?
+
+**Briefing of all three pillars**
+**Encapsulation:** 
+Language’s ability to hide unnecessary implementation details from the object user. 
+Closely related to the notion of encapsulating programming logic is the idea of **data protection.** Ideally, an object’s state data should be specified using the private (or possibly protected) keyword. In this way, the outside world must ask politely in order to change or obtain the underlying value.
+
+**Inheritance**
+It boils down to the language’s ability to allow you to build new class definitions based on existing class definitions.
+There are two types of relationship:
+* is-a
+* has-a
+
+**Polymorphism**
+ This trait captures a language’s ability to treat related objects in a similar manner. 
+ 
+**C# Access Modifiers**
+When working with encapsulation, you must always take into account which aspects of a type are visible to various parts of your application. Specifically,
+types (classes, interfaces, structures, enumerations, and delegates) as well as their members (properties, methods, constructors, and fields) are defined using a
+specific keyword to control how “visible” the item is to other parts of your application. 
+ 
+**C# Access Modifiers**
+
+|Access Modifier|Use Eligibility|Description|
+|---------------|---------------|-----------|
+|public         | Types or type members | Public items have no access restrictions. Can be accesses anywhere|
+|private        | Type members or nested types| Private items can be accessed only by the class(or structure) that defines the item. |
+|protected      | Type members or nested types| Protected items can be used by the class that defines it and any child class. However, protected items cannot be accessed from the outside world using the C# dot operator.|
+|internal       |Types or type members| Internal items are accessible only within the current assembly. Therefore, if you define a set of internal types within a .NET class library, other assemblies are not able to use them. |
+|protected internal | Type members or nested types| When the protected and internal keywords are combined on an item, the item is accessible within the defining assembly, within the defining class, and by derived classes.|
+
+**NOTE:** By default, type members are implicitly private while types are implicitly internal. 
+**CAUTION:** It is permissible to apply the private access modifier on the nested type. However, non-nested types can be defined only with the public or internal modifiers.
+
+**Encapsulation - In Detail**
+The concept of encapsulation revolves around the notion that an object’s data should not be directly accessible from an object instance. 
+Encapsulation provides a way to preserve the integrity of an object’s state data. Rather than defining public fields (which can easily attract data corruption),
+you should get in the habit of defining private data, which is indirectly manipulated using one of two main techniques.
+* You can define a pair of public accessor (get) and mutator (set) methods.
+* You can define a public .NET property.
+
+Whichever technique you choose, the point is that a well-encapsulated class
+should protect its data and hide the details of how it operates from outside world. This is often termed **black-box programming.**
+
+
+**Encapsulation Using Traditional Accessors and Mutators**
+
+	public class Car
+		   {
+			   // Field Data aka member variable - Updated to private fields
+		   
+			   private string carName;
+			   public bool engineSwitchStatus;
+
+			   // Accessor (get Method)
+			   public string GetCarName()
+			   {
+		   		   return carName;
+			   }
+
+			   //Mutator (Set Method)
+				public void SetEngineState(bool engineState)
+			   {
+			   // Can do all your validations here before making the assignment.
+			   engineSwitchStatus = engineState;
+			   }
+		   }
+
+Issue with the above approach is for every member variable there needs to be two methods for reading and writing which can be a pain point. So here comes .NET Properties
+
+**Encapsulation Using .NET Properties**
+
+	public class Car
+		   {
+			   // Field Data aka member variable - Updated to private fields
+		   
+			   private string carName;
+			   public bool engineSwitchStatus;
+
+			   // Properties
+			   public string Name
+			   {
+			   	   get {return carName;}
+				   set
+				   {
+				      // Can do all your validations here before making the assignment.
+					  // Note lack of parentheses.
+					  // Check the value assignment here!!!!
+			          engineSwitchStatus = value;
+				   }
+			   }
+		   }
+
+Within a set **scope** of a property, you use a token named **value**, which is used to represent the incoming **value** used to assign the property by the caller.
+This token is not a **true C# keyword** but is what is known as a **contextualkeyword**. When the token value is within the set scope of the property, it always
+represents the value being assigned by the caller, and it will always be the same underlying data type as the property itself. 
+
+Properties (as opposed to accessor and mutator methods) also make your types easier to manipulate, in that properties are able to respond to the intrinsic operators of C#.
+
+**Read-Only and Write-Only Properties**
+
+When encapsulating data, you might want to configure a read-only property. To do so, simply omit the set block. Likewise, if you want to have a write-only property, omit the get block.
+
+    public class Car
+		   {
+			   // Field Data aka member variable - Updated to private fields
+		   
+			   private string carName;
+			   public bool engineSwitchStatus;
+
+			   // Properties
+			   // Here you can only set Name not get name.
+			   public string Name
+			   {
+			   	   get {return carName;}
+			   }
+		   }
+
+**Defining Static Properties**
+
+	public class Car
+		   {
+			  // Field Data aka member variable - Updated to private fields
+		   
+			  private string carName;
+			  static bool engineSwitchStatus;
+
+			  // Instance level Properties
+			  // Here you can only set Name not get name.
+			  public string Name
+			  {
+			  	   get {return carName;}
+			  }
+
+			  //Static Property
+			  public static bool engineSwitchStatus
+			  {
+			  	  get{return engineSwitchStatus}
+				  set
+				  {
+				    // Checkout value being assigned.
+				    engineSwitchStatus = value;
+				  }
+			  }
+		   }
+
+**Automatic Properties**
+ In some cases you may not need any implementation logic beyond simply getting and setting the value we use automatic properties.
+
+	public class Car
+		   {
+		     // Automatic Properties backed by private variable. No need to define backing fields.
+			 public string CarName { get; set; }
+			 public bool engineSwitchStatus {get; set;}
+		   }
+
+**TIP**  Visual Studio provides the prop code snippet. If you type prop inside a class definition.
+
+**NOTE** Note The name of the auto generated private backing field is not visible within your C# code base. The only way to see it is to make use of a tool such as ildasm.exe.
+
+With the current version of C#, it is now possible to define a “read-only automatic property” by omitting the set scope. However, it is not possible to define a write-only property. 
+
+	// Read-only property? This is OK!
+	 public string CarName { get; }
+
+	// Write only property? Error! - Will not work.
+	 public bool engineSwitchStatus { set;}
+
+The class defining automatic properties will always need to use property syntax to get and set the underlying value.
+
+**Properties - Default Values**
+When you use automatic properties to encapsulate numerical or Boolean data, you are able to use the autogenerated type properties straightaway within your code base, as the hidden
+backing fields will be assigned a safe default value. However, be aware that if you use automatic property syntax to wrap another class variable, the hidden private reference 
+type will also be set to a default value of null.
+
+	public class Car
+		   {
+		    //Default will be 0
+			 public int CarModel { get; set; }
+
+			 //Default will be NULL
+			 public Car carDetails {get; set;}
+		   }
+
+if you directly invoke Car, you will receive a “null reference exception” at runtime, as the carDetails member variable used in the background has not been assigned to a new object.
+
+To solve above problem, you could update the class constructors to ensure the object comes to life in a safe manner. 
+
+**Initialization of Automatic Properties**
+ With the release of the latest version of the C# language, you are provided with a new language feature that can simplify how an automatic property receives its initial value assignment.
+
+	public class Car
+		   {
+		    //The hidden backing field is set to 1.
+			 public int CarModel { get; set; } = 2018;
+
+			 // The hidden backing field is set to a new Car object.
+			 public Car carDetails {get; set;} = new Car();
+		   }
+
+**CAUTION** Be aware of course that if you are building a property that requires additional code beyond getting and setting the underlying private field(such as data validation
+logic, writing to an event log, communicating with a database, etc.), you will be required to define a “normal” .NET property type by hand. C# automatic properties never do more 
+than provide simple encapsulation for an underlying piece of (compiler-generated) private data.
+
+**Object Initialization Syntax**
+Object initializer consists of a comma-delimited list of specified values, enclosed by the { and } tokens. Each member in the initialization list maps to the name of a public
+field or public property of the object being initialized.
+
+	// Make a Car by setting each property manually.
+	Car myCar = new Car();
+	myCar.CarModel = 2018;
+	myCar.Gear = 4;
+
+	// Via constructor.
+	Car myCar = new Car(2018, 4);
+
+	//using object Initialization syntax.
+	Car myCar = new Car(CarModel = 2018, Gear = 4);
+
+Behind the scenes, the type’s default constructor is invoked, followed by setting the values to the specified properties. To this end, object initialization syntax is just
+shorthand notation for the syntax used to create a class variable using a default constructor and to set the state data property by property.
+
+	// Here, the default constructor is called explicitly.
+	Car myCar = new Car () { CarModel = 2018, Gear = 4 };
+
+Do be aware that when you are constructing a type using initialization syntax, you are able to invoke any constructor defined by the class.
+
+	// Calling a custom constructor.
+	Car myCar = new Car (1990, 2) { CarModel = 2018, Gear = 4 };
+
+**Constant Field Data**
+**const** keyword to define constant data, which can never change after the initial assignment. 
+
+
+	public void Maths
+	{
+		// You cannot change it anymore.
+		public const double PI = 3014;
+	}
+
+**constant fields** of a **class** are implicitly static. However, it is permissible to define and access a local constant variable within the scope of a method or property.
+Regardless of where you define a constant piece of data, the one point to always remember is that the initial value assigned to the constant must be specified at the time you
+define the constant. The reason for this restriction has to do with the fact the value of constant data must be known at compile time.
+
+**Read-Only Fields**
+read-only fields are not implicitly static.
+Like a constant, a read-only field cannot be changed after the initial assignment. However, unlike a constant, the value assigned to a read-only field can be determined at runtime
+and, therefore, can legally be assigned within the scope of a **constructor but nowhere else.**
+
+
+**Static Read-Only Fields**
+ If you want to expose Field from the class level, you must explicitly use the static keyword. 
+ You must use a static constructor if you want to initialize it in constructor.
+
+ **Partial Classes**
+ We implement partial by C# partial keyword.
+ Used for working Parallel in classes.
+
+ **NOTE** Remember that every aspect of a partial class definition must be marked with the partial keyword!
+
+ After you compile the modified project, you should see no difference whatsoever. The whole idea of a partial class is realized only during design time.
+After the application has been compiled, there is just a single, unified class within the assembly.
 
 
 
 
 
-
+**************************************************************************THANKS**************************************************************************
 
 
