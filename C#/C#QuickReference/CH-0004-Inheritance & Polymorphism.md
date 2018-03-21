@@ -91,54 +91,52 @@ In C# (as well as other .NET languages), it is possible to define a type (enum, 
 * Because a nested type is a member of the containing class, it can access private members of the containing class.
 * Often, a nested type is useful only as a helper for the outer class and is not intended for use by the outside world.
 
-	//Take a glance at this code.
-	
-	
-	//Parent Class
-	    public class Organization
-    {
-        protected string Name;
-        public readonly string OrganizationType;
-        public readonly string Sector; // ReadOnly value can be initialized here as well in constructor. No where else.
-        private DateTime ObjectCreationDateTime;
-
-        public Organization(string name, string organizationType, string sector)
-        {
-            this.Name = name;
-            this.OrganizationType = organizationType;
-            this.Sector = sector;
-            this.ObjectCreationDateTime = DateTime.Now;
-        }
-
-        public Organization()
-        { }
-    }
-
-    // This is-a relationship. School is a Organization.
-    public sealed class School : Organization
-    {
-        private int NumberOfTeachers;
-        private int NumberOfStudents;
-        public string EducationMedium;
-
-        // Calling immediate Base class custom constructor to initialize base class field members. 
-        public School(string name, string organizationType, string sector,
-                      int numberOfTeachers, int numberOfStudents, string educationMedium) : base(name, organizationType, sector)
-        {
-            this.NumberOfTeachers = numberOfTeachers;
-            this.NumberOfStudents = numberOfStudents;
-            this.EducationMedium = educationMedium;
-        }
-        public School()
-        { }
-    }
-
-    //if you uncomment the code will give compile error. Because the inherited class is sealed.
-
-    //public class SubSchool : School
-    //{
-    //    // Class Members
-    //}
+	 //Take a glance at this code.	
+	 //Parent Class
+	 public class Organization
+	 {
+		 protected string Name;
+		 public readonly string OrganizationType;
+		 public readonly string Sector; // ReadOnly value can be initialized here as well in constructor. No where else.
+		 private DateTime ObjectCreationDateTime;
+	 
+		 public Organization(string name, string organizationType, string sector)
+		 {
+			 this.Name = name;
+			 this.OrganizationType = organizationType;
+			 this.Sector = sector;
+			 this.ObjectCreationDateTime = DateTime.Now;
+		 }
+	 
+		 public Organization()
+		 { }
+	 }
+	 
+	 // This is-a relationship. School is a Organization.
+	 public sealed class School : Organization
+	 {
+		 private int NumberOfTeachers;
+		 private int NumberOfStudents;
+		 public string EducationMedium;
+	 
+		 // Calling immediate Base class custom constructor to initialize base class field members. 
+		 public School(string name, string organizationType, string sector,
+					 int numberOfTeachers, int numberOfStudents, string educationMedium) : base(name, organizationType, sector)
+		 {
+			 this.NumberOfTeachers = numberOfTeachers;
+			 this.NumberOfStudents = numberOfStudents;
+			 this.EducationMedium = educationMedium;
+		 }
+		 public School()
+		 { }
+	 }
+	 
+	 //if you uncomment the code will give compile error. Because the inherited class is sealed.
+	 
+	 //public class SubSchool : School
+	 //{
+	 //    // Class Members
+	 //}
 	
 	
 **Polymorphism (Polymorphic Support) of C#**
