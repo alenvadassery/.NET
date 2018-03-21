@@ -110,7 +110,7 @@ Supports all versions of .NET, for .NET4.0 and above we can use optional paramet
            }
            
 		   // Constructor with int value as parameter.
-           public ConstructorChaining(int val1) : **this(val1, "")**
+           public ConstructorChaining(int val1) : this(val1, "")
            {
                Console.WriteLine("I am a constructor taking int value.");
                Console.Read();
@@ -460,7 +460,7 @@ field or public property of the object being initialized.
 	Car myCar = new Car(2018, 4);
 
 	//using object Initialization syntax.
-	Car myCar = new Car(CarModel = 2018, Gear = 4);
+	Car myCar = new Car{CarModel = 2018, Gear = 4};
 
 Behind the scenes, the type’s default constructor is invoked, followed by setting the values to the specified properties. To this end, object initialization syntax is just
 shorthand notation for the syntax used to create a class variable using a default constructor and to set the state data property by property.
