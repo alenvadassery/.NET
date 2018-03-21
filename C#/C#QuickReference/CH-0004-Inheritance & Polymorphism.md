@@ -140,4 +140,92 @@ In C# (as well as other .NET languages), it is possible to define a type (enum, 
 	
 **Polymorphism (Polymorphic Support) of C#**
 
+** virtual and override Keywords** 
+Polymorphism provides a way for a subclass to define its own version of a method defined by its base class, using the process termed method overriding.
+If a base class wants to define a method that may be (but does not have to be) overridden by a subclass, it must mark the method with the virtual keyword.
+
+**NOTE**: Note Methods that have been marked with the virtual keyword are termed virtual methods.
+
+When a subclass wants to change the implementation details of a virtual method, it does so using the override keyword.
+
+Each overridden method is free to leverage the default behavior using the **base** keyword.
+In this way, you have no need to completely re-implement the logic behind overridden method but can reuse (and possibly extend) the default behavior of the parent class.
+
+**TIP:** Visual Studio has a helpful feature that you can make use of when overriding a virtual member. If you type the word override within the scope of a class type (then hit the
+space-bar), IntelliSense will automatically display a list of all the over-ridable members defined in your parent classes.
+
+Sometimes you might not want to seal an entire class but simply want to prevent derived types from overriding particular virtual methods. you could effectively adding **sealed** keyword to the overridden method.
+
+**Abstract Classes**
+You cannot create the **instance** of the Abstract class. Will throw compile time error.
+
+**NOTE:**  Also understand that although you cannot directly create an instance of an abstract class, it is still assembled in memory when derived classes are created. Thus, it is perfectly fine (and common) for abstract classes to define any number of constructors that are called indirectly when derived classes are allocated.
+
+**Abstract members**
+Abstract members can be used whenever you want to define a member that does not supply a default implementation but must be accounted for by each derived class. By doing so,
+you enforce a polymorphic interface on each descendant, leaving them to contend with the task of providing the details behind your abstract methods.
+
+Methods marked with abstract are pure protocol. They simply define the name, return type (if any), and parameter set (if required).
+
+**NOTE:**Abstract methods can be defined only in abstract classes. If you attempt to do otherwise, you will be issued a compiler error.
+
+Although it is not possible to directly create an instance of an abstract base class, you are able to freely store references to any subclass with an abstract base variable.
+
+** Member Shadowing**
+C# provides a facility that is the logical opposite of method overriding, termed shadowing . Formally speaking, if a derived class defines a member that is identical to a member defined in a base class, the derived class has shadowed the parent’s version. 
+
+To address this issue, you have a few options:
+* You could simply update the parent’s version using the override keyword (as suggested by the compiler). 
+* As an alternative, you can include the new keyword to the offending member of the derived type. Doing so explicitly states that the derived type’s implementation is intentionally
+designed to effectively ignore the parent’s version.
+
+**NOTE:** You can also apply the new keyword to any member type inherited from a base class (field, constant, static member, or property).
+
+Finally, be aware that it is still possible to trigger the base class implementation of a shadowed member using an **explicit cast**.
+((BaseClass)ChildClassObjectReference).MethodName
+
+**Base Class/Derived Class Casting Rules**
+The ultimate base class in the system is System.Object. Therefore, everything “is-an” Object.
+
+The first law of casting between class types is that when two classes are related by an “is-a” relationship, it is always safe to store a derived object within a base class reference. Formally, this is called an implicit cast.
+
+This is the second law of casting: explicitly downcast using the C# casting operator by performing an explicit cast.
+	(ClassIWantToCastTo)referenceIHave
+	
+**CAUTION:** Be aware that explicit casting is evaluated at runtime, not compile time.
+
+**C# as Keyword**
+C# provides the as keyword to quickly determine at runtime whether a given type is compatible with another. When you use the as keyword, you are able to determine compatibility by checking against a null return value.
+
+**C# is Keyword**
+C# language provides the is keyword to determine whether two items are compatible. Unlike the as keyword, however, the is keyword returns false, rather than a null reference if the types are incompatible. In other words, the is keyword does not perform any sort of cast; it just checks compatibility. If things are compatible, you can then perform a safe cast.
+
+**Master Parent Class: System.Object**
+In the .NET universe, every type ultimately derives from a base class named **System.Object**, which can be represented by the C# **object** keyword.
+When you do build a class that does not explicitly define its parent, the compiler automatically derives your type from Object. 
+
+		// Go throw these methods defined in System.Object Class.
+		public class Object
+		{
+			// Virtual members.
+			
+			public virtual bool Equals(object obj);
+			protected virtual void Finalize();
+			public virtual int GetHashCode();
+			public virtual string ToString();
+			
+			// Instance-level, nonvirtual members.
+			
+			public Type GetType();
+			protected object MemberwiseClone();
+			
+			// Static members.
+			
+			public static bool Equals(object objA, objectobjB);
+			public static bool ReferenceEquals(object objA, object objB);
+		}
+
+
+
+
 
