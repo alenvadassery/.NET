@@ -92,8 +92,10 @@ In C# (as well as other .NET languages), it is possible to define a type (enum, 
 * Often, a nested type is useful only as a helper for the outer class and is not intended for use by the outside world.
 
 	//Take a glance at this code.
-	 //Parent Class
-    public class Organization
+	
+	
+	//Parent Class
+	    public class Organization
     {
         protected string Name;
         public readonly string OrganizationType;
