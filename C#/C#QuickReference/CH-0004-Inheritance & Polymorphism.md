@@ -19,7 +19,7 @@ The existing class that will serve as the basis for the new class is termed a **
 		// class members to do with the school.
 	}
 
-**NOTE:** Although constructors are typically defined as public, a derived class **never inherits** the constructors of a parent class. Constructors are used to construct only the
+**NOTE:**  Although constructors are typically defined as public, a derived class **never inherits** the constructors of a parent class. Constructors are used to construct only the
 class that they are defined within.
 
 
@@ -36,7 +36,7 @@ Keep in mind that C# demands that a given class have **exactly one** direct base
 	}
 	
 **The sealed Keyword**
-When you mark a class as **sealed**, the compiler will not allow you to derive from this type.
+When you mark a class as **sealed** , the compiler will not allow you to derive from this type.
 
 	//The School cannot be extended or be inherited by any other class.
     sealed class School : Organization
@@ -64,13 +64,13 @@ Work flow in this :
 To fix above issue: To help optimize the creation of a derived class, you will do well to implement your subclass constructors to explicitly call an appropriate custom
 base class constructor, rather than the default. In this way, you are able to reduce the number of calls to inherited initialization members (which saves processing time).
 
-**NOTE:** You may use the base keyword whenever a subclass wants to access a public or protected member defined by a parent class. Use of this keyword is not limited to constructor logic.
+**NOTE:**  You may use the base keyword whenever a subclass wants to access a public or protected member defined by a parent class. Use of this keyword is not limited to constructor logic.
 
-**The protected Keyword :** When a base class defines protected data or protected members, it establishes a set of items that can be accessed directly by any descendant. 
+**The protected Keyword :**  When a base class defines protected data or protected members, it establishes a set of items that can be accessed directly by any descendant. 
 
-**Sealed Class:** sealed class cannot be extended by other classes. As mentioned, this technique is most often used when you are designing a utility class.
+**Sealed Class:**  sealed class cannot be extended by other classes. As mentioned, this technique is most often used when you are designing a utility class.
 
-“has-a” relationship (also known as the containment/delegation model or aggregation).
+**“has-a”** relationship (also known as the containment/delegation model or aggregation).
 
 For has-a relationship you have successfully contained another object. However, exposing the functionality of the contained object to the outside world requires delegation. Delegation is simply the act of adding public members to the containing class that use the contained object’s functionality.
 
@@ -146,14 +146,14 @@ In C# (as well as other .NET languages), it is possible to define a type (enum, 
 Polymorphism provides a way for a subclass to define its own version of a method defined by its base class, using the process termed method overriding.
 If a base class wants to define a method that may be (but does not have to be) overridden by a subclass, it must mark the method with the virtual keyword.
 
-**NOTE**: Note Methods that have been marked with the virtual keyword are termed virtual methods.
+**NOTE** : Note Methods that have been marked with the virtual keyword are termed virtual methods.
 
 When a subclass wants to change the implementation details of a virtual method, it does so using the override keyword.
 
 Each overridden method is free to leverage the default behavior using the **base** keyword.
 In this way, you have no need to completely re-implement the logic behind overridden method but can reuse (and possibly extend) the default behavior of the parent class.
 
-**TIP:** Visual Studio has a helpful feature that you can make use of when overriding a virtual member. If you type the word override within the scope of a class type (then hit the
+**TIP:**  Visual Studio has a helpful feature that you can make use of when overriding a virtual member. If you type the word override within the scope of a class type (then hit the
 space-bar), IntelliSense will automatically display a list of all the over-ridable members defined in your parent classes.
 
 Sometimes you might not want to seal an entire class but simply want to prevent derived types from overriding particular virtual methods. you could effectively adding **sealed** keyword to the overridden method.
@@ -173,7 +173,7 @@ Methods marked with abstract are pure protocol. They simply define the name, ret
 
 Although it is not possible to directly create an instance of an abstract base class, you are able to freely store references to any subclass with an abstract base variable.
 
-** Member Shadowing**      
+**Member Shadowing**      
 C# provides a facility that is the logical opposite of method overriding, termed shadowing . Formally speaking, if a derived class defines a member that is identical to a member defined in a base class, the derived class has shadowed the parent’s version. 
 
 To address this issue, you have a few options:
