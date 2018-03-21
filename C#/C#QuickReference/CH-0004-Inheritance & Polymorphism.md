@@ -19,7 +19,9 @@ The existing class that will serve as the basis for the new class is termed a **
 		// class members to do with the school.
 	}
 
-**NOTE:** Although constructors are typically defined as public, a derived class **never inherits** the constructors of a parent class. Constructors are used to construct only theclass that they are defined within.
+**NOTE:** Although constructors are typically defined as public, a derived class **never inherits** the constructors of a parent class. Constructors are used to construct only the
+class that they are defined within.
+
 
 Always remember that inheritance preserves encapsulation; therefore private members can never be accessed from an object reference. Private members can be accessed only by the class that defines it.
 
@@ -161,17 +163,17 @@ You cannot create the **instance** of the Abstract class. Will throw compile tim
 
 **NOTE:**  Also understand that although you cannot directly create an instance of an abstract class, it is still assembled in memory when derived classes are created. Thus, it is perfectly fine (and common) for abstract classes to define any number of constructors that are called indirectly when derived classes are allocated.
 
-**Abstract members**
+**Abstract members**       
 Abstract members can be used whenever you want to define a member that does not supply a default implementation but must be accounted for by each derived class. By doing so,
 you enforce a polymorphic interface on each descendant, leaving them to contend with the task of providing the details behind your abstract methods.
 
 Methods marked with abstract are pure protocol. They simply define the name, return type (if any), and parameter set (if required).
 
-**NOTE:**Abstract methods can be defined only in abstract classes. If you attempt to do otherwise, you will be issued a compiler error.
+**NOTE:** Abstract methods can be defined only in abstract classes. If you attempt to do otherwise, you will be issued a compiler error.
 
 Although it is not possible to directly create an instance of an abstract base class, you are able to freely store references to any subclass with an abstract base variable.
 
-** Member Shadowing**
+** Member Shadowing**      
 C# provides a facility that is the logical opposite of method overriding, termed shadowing . Formally speaking, if a derived class defines a member that is identical to a member defined in a base class, the derived class has shadowed the parent’s version. 
 
 To address this issue, you have a few options:
@@ -192,7 +194,7 @@ The first law of casting between class types is that when two classes are relate
 This is the second law of casting: explicitly downcast using the C# casting operator by performing an explicit cast.
 	(ClassIWantToCastTo)referenceIHave
 	
-**CAUTION:** Be aware that explicit casting is evaluated at runtime, not compile time.
+**CAUTION:**  Be aware that explicit casting is evaluated at runtime, not compile time.
 
 **C# as Keyword**
 C# provides the as keyword to quickly determine at runtime whether a given type is compatible with another. When you use the as keyword, you are able to determine compatibility by checking against a null return value.
