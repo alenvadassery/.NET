@@ -1,6 +1,7 @@
 **Working of Inheritance**
 
 Code reuse comes in two flavors: inheritance (the "is-a" relationship) and the containment/delegation model (the "has-a" relationship).
+	
 	//A simple base class.
 	class Organization
 	{
