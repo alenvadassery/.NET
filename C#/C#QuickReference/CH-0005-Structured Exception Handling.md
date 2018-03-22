@@ -23,7 +23,8 @@ The C# programming language offers five keywords (try, catch, throw, finally, an
 
 **NOTE:** The Exception class implements two .NET interfaces. **_Exception** interface allows a .NET exception to be processed by an unmanaged code base (such as a COM application), while the **ISerializable** interface allows an exception object to be persisted across boundaries (such as a machine boundary).
 
-** Core Members of the System.Exception Type**
+**Core Members of the System.Exception Type:**
+
 |Core Members of the System.Exception Type|Description|
 |-----------------------------------------|-----------|
 |Data|This read-only property retrieves a collection of key/value pairs (represented by an object implementing IDictionary) that provide additional, programmer defined information about the exception. By default, this collection is empty.|
