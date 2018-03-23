@@ -1,0 +1,7 @@
+C:\Users\Alen Vadassery\Source\Repos\CSharpSampleTestCodeLibrary\CSharpSampleTestCodeLibrary\obj\Debug\CSharpSampleTestCodeLibrary.csprojResolveAssemblyReference.cache
+C:\Users\Alen Vadassery\Source\Repos\CSharpSampleTestCodeLibrary\CSharpSampleTestCodeLibrary\obj\Debug\CSharpSampleTestCodeLibrary.csproj.CoreCompileInputs.cache
+C:\Users\Alen Vadassery\Source\Repos\CSharpSampleTestCodeLibrary\CSharpSampleTestCodeLibrary\bin\Debug\CSharpSampleTestCodeLibrary.exe.config
+C:\Users\Alen Vadassery\Source\Repos\CSharpSampleTestCodeLibrary\CSharpSampleTestCodeLibrary\bin\Debug\CSharpSampleTestCodeLibrary.exe
+C:\Users\Alen Vadassery\Source\Repos\CSharpSampleTestCodeLibrary\CSharpSampleTestCodeLibrary\bin\Debug\CSharpSampleTestCodeLibrary.pdb
+C:\Users\Alen Vadassery\Source\Repos\CSharpSampleTestCodeLibrary\CSharpSampleTestCodeLibrary\obj\Debug\CSharpSampleTestCodeLibrary.exe
+C:\Users\Alen Vadassery\Source\Repos\CSharpSampleTestCodeLibrary\CSharpSampleTestCodeLibrary\obj\Debug\CSharpSampleTestCodeLibrary.pdb
