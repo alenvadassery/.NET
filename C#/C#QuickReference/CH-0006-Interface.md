@@ -1,4 +1,5 @@
 **Understanding Interface Types**
+
 An **interface** is nothing more than a named set of abstract members. As abstract methods are pure protocol in that they do not provide a default implementation. The specific members defined by an interface depend on the exact behavior it is modeling. Said another way, an interface expresses a behavior that a given class or structure may choose to support. 
 
 A **class or structure** can support as many interfaces as necessary, thereby supporting (in essence) multiple behaviors.
