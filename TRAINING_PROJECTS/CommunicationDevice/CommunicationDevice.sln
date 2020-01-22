@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneProject", "PhoneProject\PhoneProject.csproj", "{DEDAD918-9BC3-40B2-89C2-236390CEA951}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommunicationDevice", "CommunicationDevice\CommunicationDevice.csproj", "{DEDAD918-9BC3-40B2-89C2-236390CEA951}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
