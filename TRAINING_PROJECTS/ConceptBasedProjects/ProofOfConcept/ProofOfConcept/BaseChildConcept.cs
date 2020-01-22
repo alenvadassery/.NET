@@ -61,12 +61,12 @@ namespace ProofOfConcept
 
 		public void Method_5()
 		{
-			Console.WriteLine("I am Method_4 from Parent class");
+			Console.WriteLine("I am Method_5 from Parent class");
 		}
 
 		public void Method_6()
 		{
-			Console.WriteLine("I am Method_5 from Parent class");
+			Console.WriteLine("I am Method_6 from Parent class");
 		}
 
 		public virtual void Method_11()
@@ -109,9 +109,8 @@ namespace ProofOfConcept
 
 	}
 
-	public class SubChild :Child
-	{
-
+	public class SubChild : Child
+	{ 
 		public void Method_1()
 		{
 			Console.WriteLine("I am Method_1 from SubChild class");
