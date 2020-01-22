@@ -43,7 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abstract\BasicTelephone.cs" />
+    <Compile Include="Abstract\CommunicationDevice.cs" />
+    <Compile Include="Abstract\Telephone.cs" />
     <Compile Include="Interface\IBaiscTelephone.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
